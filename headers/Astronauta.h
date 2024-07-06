@@ -10,6 +10,8 @@ private:
     string cpf;
     string nome;
     int idade;
+    bool vivo;
+    bool disponivel;
 
 public:
     Astronauta(string cpf, string nome, int idade);
@@ -17,6 +19,11 @@ public:
     string getCPF() const;
     string getNome() const;
     int getIdade() const;
+    bool getVivo() const;
+    bool getDisponivel() const;
+    
+    void morrer();
+    void setDisponivel(bool status);
 };
 
 #endif // ASTRONAUTA_H
