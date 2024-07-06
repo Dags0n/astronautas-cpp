@@ -301,8 +301,8 @@ void Sistema::listarAstronautasMortos() {
             }
         }
         cout << "Número de voos que participou: " << it->second << endl;
-        cout << "-------------------------------------\n" << endl;
         cout << endl;
     }
+    cout << "-------------------------------------\n" << endl;
     cout << endl;
 }
