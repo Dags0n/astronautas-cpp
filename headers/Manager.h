@@ -10,7 +10,9 @@ class Sistema {
 private:
     vector<Astronauta*> astronautas;
     vector<Voo*> voos;
-    unordered_map<string, int> astronautasMortos;
+    // cpf e voos que o astronauta morto participou
+    unordered_map<string, vector<Voo*>> astronautasMortos;
+    unordered_map<string, vector<Voo*>> astronautasVooFinalizados;
 
 public:
     void cadastrarAstronauta();

@@ -76,12 +76,16 @@ void Sistema::listarVoos() {
         if (voo->getPlanejamento()) {
             cout << "Código do voo: " << voo->getCodigoVoo() << endl;
             cout << "Status: Planejamento" << endl;
-            for (Astronauta* astronauta : voo->getPassageiros()) {
-                cout << "CPF: " << astronauta->getCPF() << endl;
-                cout << "Nome: " << astronauta->getNome() << endl;
-                cout << "Idade: " << astronauta->getIdade() << endl;
-                cout << endl;
+            if (voo->getPassageiros().size() > 0) {
+                cout << "Astronautas no voo:" << endl;
+                for (Astronauta* astronauta : voo->getPassageiros()) {
+                    cout << "CPF: " << astronauta->getCPF() << endl;
+                    cout << "Nome: " << astronauta->getNome() << endl;
+                    cout << "Idade: " << astronauta->getIdade() << endl;
+                    cout << endl;
+                }
             }
+
             cout << endl;
         }
     }
@@ -91,11 +95,14 @@ void Sistema::listarVoos() {
         if (!voo->getPlanejamento() && !voo->getFinalizado() && !voo->getExplodido()) {
             cout << "Código do voo: " << voo->getCodigoVoo() << endl;
             cout << "Status: Em andamento" << endl;
-            for (Astronauta* astronauta : voo->getPassageiros()) {
-                cout << "CPF: " << astronauta->getCPF() << endl;
-                cout << "Nome: " << astronauta->getNome() << endl;
-                cout << "Idade: " << astronauta->getIdade() << endl;
-                cout << endl;
+            if (voo->getPassageiros().size() > 0) {
+                cout << "Astronautas no voo:" << endl;
+                for (Astronauta* astronauta : voo->getPassageiros()) {
+                    cout << "CPF: " << astronauta->getCPF() << endl;
+                    cout << "Nome: " << astronauta->getNome() << endl;
+                    cout << "Idade: " << astronauta->getIdade() << endl;
+                    cout << endl;
+                }
             }
             cout << endl;
         }
@@ -106,11 +113,14 @@ void Sistema::listarVoos() {
         if (voo->getFinalizado()) {
             cout << "Código do voo: " << voo->getCodigoVoo() << endl;
             cout << "Status: Finalizado" << endl;
-            for (Astronauta* astronauta : voo->getPassageiros()) {
-                cout << "CPF: " << astronauta->getCPF() << endl;
-                cout << "Nome: " << astronauta->getNome() << endl;
-                cout << "Idade: " << astronauta->getIdade() << endl;
-                cout << endl;
+            if (voo->getPassageiros().size() > 0) {
+                cout << "Astronautas no voo:" << endl;
+                for (Astronauta* astronauta : voo->getPassageiros()) {
+                    cout << "CPF: " << astronauta->getCPF() << endl;
+                    cout << "Nome: " << astronauta->getNome() << endl;
+                    cout << "Idade: " << astronauta->getIdade() << endl;
+                    cout << endl;
+                }
             }
             cout << endl;
         }
@@ -121,11 +131,14 @@ void Sistema::listarVoos() {
         if (voo->getExplodido()) {
             cout << "Código do voo: " << voo->getCodigoVoo() << endl;
             cout << "Status: Explodido" << endl;
-            for (Astronauta* astronauta : voo->getPassageiros()) {
-                cout << "CPF: " << astronauta->getCPF() << endl;
-                cout << "Nome: " << astronauta->getNome() << endl;
-                cout << "Idade: " << astronauta->getIdade() << endl;
-                cout << endl;
+            if (voo->getPassageiros().size() > 0) {
+                cout << "Astronautas no voo:" << endl;
+                for (Astronauta* astronauta : voo->getPassageiros()) {
+                    cout << "CPF: " << astronauta->getCPF() << endl;
+                    cout << "Nome: " << astronauta->getNome() << endl;
+                    cout << "Idade: " << astronauta->getIdade() << endl;
+                    cout << endl;
+                }
             }
             cout << endl;
         }
@@ -255,7 +268,7 @@ void Sistema::explodirVoo() {
     // Adicionar astronautas mortos se e somente se o voo explodir
     if (voo->getExplodido()) {
         for (Astronauta* astronauta : voo->getPassageiros()) {
-            astronautasMortos[astronauta->getCPF()]++;
+            astronautasMortos[astronauta->getCPF()].push_back(voo);
         }
     }
 }
@@ -280,6 +293,13 @@ void Sistema::finalizarVoo() {
     }
 
     voo->finalizarVoo();
+
+    // Adicionar voos finalizados para quando o astronauta morrer
+    if (voo->getFinalizado()) {
+        for (Astronauta* astronauta : voo->getPassageiros()) {
+            astronautasVooFinalizados[astronauta->getCPF()].push_back(voo);
+        }
+    }
 }
 
 // Listar passageiros mortos
@@ -300,7 +320,22 @@ void Sistema::listarAstronautasMortos() {
                 break;
             }
         }
-        cout << "Número de voos que participou: " << it->second << endl;
+        
+        cout << "Voo que o astronauta foi de arrasta:" << endl;
+        for (Voo* voo : it->second) {
+            cout << "Código do voo: " << voo->getCodigoVoo() << endl;            
+        }
+        //voos que o astronauta finalizou
+        cout << "Voos que o astronauta participou:" << endl;
+        for (auto it2 = astronautasVooFinalizados.begin(); it2 != astronautasVooFinalizados.end(); it2++) {
+            if (it2->first == it->first) {
+                for (Voo* voo : it2->second) {
+                    cout << "Código do voo: " << voo->getCodigoVoo() << endl;
+                }
+            }
+        }
+
+        
         cout << endl;
     }
     cout << "-------------------------------------\n" << endl;
