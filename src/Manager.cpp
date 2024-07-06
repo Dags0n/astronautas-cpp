@@ -3,6 +3,16 @@
 
 using namespace std;
 
+// Função para buscar um voo por código
+Voo* buscarVooPorCodigo(const vector<Voo*>& voos, int codigoVoo) {
+    for (Voo* v : voos) {
+        if (v->getCodigoVoo() == codigoVoo) {
+            return v;
+        }
+    }
+    return nullptr;  // Retorna nullptr se o voo não for encontrado
+}
+
 // Cadastrar astronauta
 void Sistema::cadastrarAstronauta() {
     string nome, cpf;
@@ -169,13 +179,7 @@ void Sistema::adicionarAstronautaEmVoo() {
     }
 
     // Verificar se voo existe
-    Voo* voo = nullptr;
-    for (Voo* v : voos) {
-        if (v->getCodigoVoo() == codigoVoo) {
-            voo = v;
-            break;
-        }
-    }
+    Voo* voo = buscarVooPorCodigo(voos, codigoVoo);
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -207,13 +211,7 @@ void Sistema::removerAstronautaDeVoo() {
     }
 
     // Verificar se voo existe
-    Voo* voo = nullptr;
-    for (Voo* v : voos) {
-        if (v->getCodigoVoo() == codigoVoo) {
-            voo = v;
-            break;
-        }
-    }
+    Voo* voo = buscarVooPorCodigo(voos, codigoVoo);
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -229,13 +227,7 @@ void Sistema::lancarVoo() {
     cin >> codigoVoo;
 
     // Verificar se voo existe
-    Voo* voo = nullptr;
-    for (Voo* v : voos) {
-        if (v->getCodigoVoo() == codigoVoo) {
-            voo = v;
-            break;
-        }
-    }
+    Voo* voo = buscarVooPorCodigo(voos, codigoVoo);
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -251,13 +243,7 @@ void Sistema::explodirVoo() {
     cin >> codigoVoo;
 
     // Verificar se voo existe
-    Voo* voo = nullptr;
-    for (Voo* v : voos) {
-        if (v->getCodigoVoo() == codigoVoo) {
-            voo = v;
-            break;
-        }
-    }
+    Voo* voo = buscarVooPorCodigo(voos, codigoVoo);
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -280,13 +266,7 @@ void Sistema::finalizarVoo() {
     cin >> codigoVoo;
 
     // Verificar se voo existe
-    Voo* voo = nullptr;
-    for (Voo* v : voos) {
-        if (v->getCodigoVoo() == codigoVoo) {
-            voo = v;
-            break;
-        }
-    }
+    Voo* voo = buscarVooPorCodigo(voos, codigoVoo);
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
