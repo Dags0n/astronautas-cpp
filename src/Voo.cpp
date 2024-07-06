@@ -1,8 +1,10 @@
 #include <iostream>
 #include "./../headers/Voo.h"
 
+// Construtor
 Voo::Voo(int codigoVoo) : codigoVoo(codigoVoo), planejamento(true), finalizado(false), andamento(false), explodido(false) {}
 
+// Getters
 int Voo::getCodigoVoo() const {
     return codigoVoo;
 }
@@ -43,6 +45,7 @@ void Voo::adicionarPassageiroVoo(Astronauta* astronauta) {
         cout << "Astronauta não está disponível!\n" << endl;
         return;
     }
+    // Verificar se o voo está em planejamento
     if (planejamento) {
         for (Astronauta* a : passageiros) {
             if (a->getCPF() == astronauta->getCPF()) {
@@ -60,6 +63,7 @@ void Voo::adicionarPassageiroVoo(Astronauta* astronauta) {
 // Remover passageiro do voo
 void Voo::removerPassageiroVoo(string cpf) {
     if (planejamento) {
+        // Verificar se o astronauta está no voo e removê-lo
         for (int i = 0; i < passageiros.size(); i++) {
             if (passageiros[i]->getCPF() == cpf) {
                 passageiros.erase(passageiros.begin() + i);
@@ -111,6 +115,7 @@ void Voo::finalizarVoo() {
     } else if (finalizado) {
         cout << "Voo já foi finalizado!\n" << endl; 
     } else {
+        // Finalizar voo
         setFinalizado(true);
         setAndamento(false);
         for(Astronauta* a : passageiros) {
@@ -129,6 +134,7 @@ void Voo::explodirVoo() {
     } else if (explodido) {
         cout << "Voo já foi explodido!\n" << endl;
     } else {
+        // Explodir voo
         setExplodido(true);
         setAndamento(false);
         for(Astronauta* a : passageiros) {

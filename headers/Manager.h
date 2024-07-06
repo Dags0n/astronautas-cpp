@@ -15,6 +15,7 @@ private:
     unordered_map<string, vector<Voo*>> astronautasVooFinalizados;
 
 public:
+    // Métodos
     void cadastrarAstronauta();
     void listarAstronautas();
     void cadastrarVoo();

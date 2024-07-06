@@ -3,9 +3,11 @@
 
 using namespace std;
 
+// Construtor
 Astronauta::Astronauta(string cpf, string nome, int idade)
     : cpf(cpf), nome(nome), idade(idade), vivo(true), disponivel(true) {}
 
+// Getters
 string Astronauta::getCPF() const {
     return cpf;
 }

@@ -155,6 +155,7 @@ void Sistema::adicionarAstronautaEmVoo() {
     cout << "Digite o código do voo: ";
     cin >> codigoVoo;
     
+    // Verificar se astronauta existe
     Astronauta* astronauta = nullptr;
     for (Astronauta* a : astronautas) {
         if (a->getCPF() == cpf) {
@@ -162,12 +163,12 @@ void Sistema::adicionarAstronautaEmVoo() {
             break;
         }
     }
-
     if (astronauta == nullptr) {
         cout << "Astronauta não encontrado!\n" << endl;
         return;
     }
 
+    // Verificar se voo existe
     Voo* voo = nullptr;
     for (Voo* v : voos) {
         if (v->getCodigoVoo() == codigoVoo) {
@@ -175,7 +176,6 @@ void Sistema::adicionarAstronautaEmVoo() {
             break;
         }
     }
-
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -193,6 +193,7 @@ void Sistema::removerAstronautaDeVoo() {
     cout << "Digite o código do voo: ";
     cin >> codigoVoo;
     
+    // Verificar se astronauta existe
     Astronauta* astronauta = nullptr;
     for (Astronauta* a : astronautas) {
         if (a->getCPF() == cpf) {
@@ -200,12 +201,12 @@ void Sistema::removerAstronautaDeVoo() {
             break;
         }
     }
-
     if (astronauta == nullptr) {
         cout << "Astronauta não encontrado!\n" << endl;
         return;
     }
 
+    // Verificar se voo existe
     Voo* voo = nullptr;
     for (Voo* v : voos) {
         if (v->getCodigoVoo() == codigoVoo) {
@@ -213,7 +214,6 @@ void Sistema::removerAstronautaDeVoo() {
             break;
         }
     }
-
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -228,6 +228,7 @@ void Sistema::lancarVoo() {
     cout << "Digite o código do voo: ";
     cin >> codigoVoo;
 
+    // Verificar se voo existe
     Voo* voo = nullptr;
     for (Voo* v : voos) {
         if (v->getCodigoVoo() == codigoVoo) {
@@ -235,7 +236,6 @@ void Sistema::lancarVoo() {
             break;
         }
     }
-
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -250,6 +250,7 @@ void Sistema::explodirVoo() {
     cout << "Digite o código do voo: ";
     cin >> codigoVoo;
 
+    // Verificar se voo existe
     Voo* voo = nullptr;
     for (Voo* v : voos) {
         if (v->getCodigoVoo() == codigoVoo) {
@@ -257,7 +258,6 @@ void Sistema::explodirVoo() {
             break;
         }
     }
-
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -279,6 +279,7 @@ void Sistema::finalizarVoo() {
     cout << "Digite o código do voo: ";
     cin >> codigoVoo;
 
+    // Verificar se voo existe
     Voo* voo = nullptr;
     for (Voo* v : voos) {
         if (v->getCodigoVoo() == codigoVoo) {
@@ -286,7 +287,6 @@ void Sistema::finalizarVoo() {
             break;
         }
     }
-
     if (voo == nullptr) {
         cout << "Voo não encontrado!\n" << endl;
         return;
@@ -294,7 +294,7 @@ void Sistema::finalizarVoo() {
 
     voo->finalizarVoo();
 
-    // Adicionar voos finalizados para quando o astronauta morrer
+    // Adicionar voos finalizados para quando/se o astronauta morrer
     if (voo->getFinalizado()) {
         for (Astronauta* astronauta : voo->getPassageiros()) {
             astronautasVooFinalizados[astronauta->getCPF()].push_back(voo);
@@ -320,12 +320,11 @@ void Sistema::listarAstronautasMortos() {
                 break;
             }
         }
-        
         cout << "Voo que o astronauta foi de arrasta:" << endl;
         for (Voo* voo : it->second) {
             cout << "Código do voo: " << voo->getCodigoVoo() << endl;            
         }
-        //voos que o astronauta finalizou
+        //voos que o astronauta finalizou com sucesso
         cout << "Voos que o astronauta participou:" << endl;
         for (auto it2 = astronautasVooFinalizados.begin(); it2 != astronautasVooFinalizados.end(); it2++) {
             if (it2->first == it->first) {

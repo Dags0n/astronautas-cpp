@@ -16,8 +16,10 @@ private:
     bool explodido;
 
 public:
+    // Construtor
     Voo(int codigoVoo);
 
+    // Getters
     int getCodigoVoo() const;
     vector<Astronauta*> getPassageiros() const;
     bool getPlanejamento() const;
@@ -25,11 +27,13 @@ public:
     bool getAndamento() const;
     bool getExplodido() const;
 
+    // Setters
     void setPlanejamento(bool status);
     void setFinalizado(bool status);
     void setAndamento(bool status);
     void setExplodido(bool status);
 
+    // Métodos
     void adicionarPassageiroVoo(Astronauta* astronauta);
     void removerPassageiroVoo(string cpf);
     void lancarVoo();

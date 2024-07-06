@@ -14,14 +14,17 @@ private:
     bool disponivel;
 
 public:
+    // Construtor
     Astronauta(string cpf, string nome, int idade);
 
+    // Getters
     string getCPF() const;
     string getNome() const;
     int getIdade() const;
     bool getVivo() const;
     bool getDisponivel() const;
     
+    // Setters
     void morrer();
     void setDisponivel(bool status);
 };
