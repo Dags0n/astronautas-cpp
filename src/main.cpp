@@ -17,6 +17,7 @@ int main() {
       cout << "0. Sair" << endl;
       cout << "Escolha uma opcao: ";
       cin >> escolha;
+      cout << endl;
 
       switch (escolha) {
         case 1: {
@@ -24,9 +25,12 @@ int main() {
           cout << "1. Cadastrar astronauta" << endl;
           cout << "2. Adicionar astronauta em voo" << endl;
           cout << "3. Remover astronauta de voo" << endl;
+          cout << "4. Listar astronautas" << endl;
+          cout << "5. Listar astronautas mortos" << endl;
           cout << "0. Sair" << endl;
           cout << "Escolha uma opcao: ";
           cin >> escolha1;
+          cout << endl;
 
           switch (escolha1)
           {
@@ -38,6 +42,12 @@ int main() {
             break;
           case 3:
             sistema.removerAstronautaDeVoo();
+            break;
+          case 4:
+            sistema.listarAstronautas();
+            break;
+          case 5:
+            sistema.listarAstronautasMortos();
             break;
           case 0:
             cout << "Saindo do menu de astronautas..." << endl;
@@ -52,12 +62,13 @@ int main() {
           cout << "Menu:" << endl;
           cout << "1. Cadastrar voo" << endl;
           cout << "2. Lançar voo" << endl;
-          cout << "3. Finalizar voo" << endl;
-          cout << "4. Explodir voo" << endl;
+          cout << "3. Explodir voo" << endl;
+          cout << "4. Finalizar voo" << endl;
           cout << "5. Listar voos" << endl;
           cout << "0. Sair" << endl;
           cout << "Escolha uma opcao: ";
           cin >> escolha2;
+          cout << endl;
 
           switch (escolha2)
           {
@@ -68,10 +79,10 @@ int main() {
             sistema.lancarVoo();
             break;
           case 3:
-            sistema.finalizarVoo();
+            sistema.explodirVoo();
             break;
           case 4:
-            sistema.explodirVoo();
+            sistema.finalizarVoo();
             break;
           case 5:
             sistema.listarVoos();
@@ -87,8 +98,6 @@ int main() {
         }
         case 0: {
           cout << "Saindo do programa..." << endl;
-          // limpar memoria alocada
-          
           break;
         }
         default:
