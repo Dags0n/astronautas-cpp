@@ -11,23 +11,29 @@ int main() {
 
   int escolha, escolha1, escolha2;
     do {
-      cout << "Menu:" << endl;
-      cout << "1. Menu de Astronautas" << endl;
-      cout << "2. Menu de Voos" << endl;
-      cout << "0. Sair" << endl;
+      cout << "====================================\n";
+      cout << "|          Menu Principal          |\n";
+      cout << "------------------------------------\n";
+      cout << "| 1 - Menu de Astronautas          |\n";
+      cout << "| 2 - Menu de Voos                 |\n";
+      cout << "| 0 - Finalizar Programa           |\n";
+      cout << "====================================\n";
       cout << "Escolha uma opcao: ";
       cin >> escolha;
       cout << endl;
 
       switch (escolha) {
         case 1: {
-          cout << "Menu:" << endl;
-          cout << "1. Cadastrar astronauta" << endl;
-          cout << "2. Adicionar astronauta em voo" << endl;
-          cout << "3. Remover astronauta de voo" << endl;
-          cout << "4. Listar astronautas" << endl;
-          cout << "5. Listar astronautas mortos" << endl;
-          cout << "0. Sair" << endl;
+          cout << "====================================\n";
+          cout << "|          Menu Astronautas        |\n";
+          cout << "------------------------------------\n";
+          cout << "| 1 - Cadastrar Astronauta         |\n";
+          cout << "| 2 - Adicionar Astronauta em Voo  |\n";
+          cout << "| 3 - Remover Astronauta de Voo    |\n";
+          cout << "| 4 - Listar Astronautas           |\n";
+          cout << "| 5 - Listar Astronautas Mortos    |\n";
+          cout << "| 0 - Voltar                       |\n";
+          cout << "====================================\n";
           cout << "Escolha uma opcao: ";
           cin >> escolha1;
           cout << endl;
@@ -59,13 +65,16 @@ int main() {
           break;
         }
         case 2: {
-          cout << "Menu:" << endl;
-          cout << "1. Cadastrar voo" << endl;
-          cout << "2. Lançar voo" << endl;
-          cout << "3. Explodir voo" << endl;
-          cout << "4. Finalizar voo" << endl;
-          cout << "5. Listar voos" << endl;
-          cout << "0. Sair" << endl;
+          cout << "====================================\n";
+          cout << "|            Menu Voos             |\n";
+          cout << "------------------------------------\n";
+          cout << "| 1 - Cadastrar Voo                |\n";
+          cout << "| 2 - Lançar Voo                   |\n";
+          cout << "| 3 - Explodir Voo                 |\n";
+          cout << "| 4 - Finalizar Voo                |\n";
+          cout << "| 5 - Listar Voos                  |\n";
+          cout << "| 0 - Voltar                       |\n";
+          cout << "====================================\n";
           cout << "Escolha uma opcao: ";
           cin >> escolha2;
           cout << endl;
