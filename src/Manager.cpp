@@ -28,7 +28,12 @@ void Sistema::cadastrarAstronauta() {
 
 // Listar astronautas
 void Sistema::listarAstronautas() {
-    cout << "-------------------------------------" << endl;
+    // Verificar se há astronautas cadastrados
+    if (astronautas.size() == 0) {
+        cout << "Não há astronautas cadastrados!\n" << endl;
+        return;
+    }
+    cout << "-------------------------------------\n" << endl;
     cout << "Astronautas cadastrados:\n" << endl;
     for (Astronauta* astronauta : astronautas) {
         cout << "CPF: " << astronauta->getCPF() << endl;
@@ -59,7 +64,12 @@ void Sistema::cadastrarVoo() {
 
 // Listar voos
 void Sistema::listarVoos() {
-    cout << "-------------------------------------" << endl;
+    // Verificar se há voos cadastrados
+    if (voos.size() == 0) {
+        cout << "Não há voos cadastrados!\n" << endl;
+        return;
+    }
+    cout << "-------------------------------------\n" << endl;
     cout << "Voos cadastrados:\n" << endl;
     // Voos em planejamento
     for (Voo* voo : voos) {
@@ -274,7 +284,12 @@ void Sistema::finalizarVoo() {
 
 // Listar passageiros mortos
 void Sistema::listarAstronautasMortos() {
-    cout << "-------------------------------------" << endl;
+    // Verificar se há astronautas mortos
+    if (astronautasMortos.size() == 0) {
+        cout << "Não há astronautas mortos!\n" << endl;
+        return;
+    }
+    cout << "-------------------------------------\n" << endl;
     cout << "Astronautas mortos:" << endl;
     for (auto it = astronautasMortos.begin(); it != astronautasMortos.end(); it++) {
         cout << "CPF: " << it->first << endl;
@@ -286,7 +301,7 @@ void Sistema::listarAstronautasMortos() {
             }
         }
         cout << "Número de voos que participou: " << it->second << endl;
-        cout << "-------------------------------------" << endl;
+        cout << "-------------------------------------\n" << endl;
         cout << endl;
     }
     cout << endl;
