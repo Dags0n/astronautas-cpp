@@ -1,5 +1,5 @@
 # Sistema de Gestão de Astronautas e Voos Espaciais
-Este projeto é um sistema simples de gestão de astronautas em C++ para a disciplina Linguagem de Programação I. O sistema permite cadastrar astronautas, voos, adicionar e remover astronautas a voos, lançar voos, explodir voos, finalizar voos com sucesso ou não, listar voos planejados, em curso e finalizados, além de manter registro dos astronautas mortos.
+Este projeto é um sistema simples de gestão de astronautas em C++ para a disciplina Linguagem de Programação I. O sistema permite cadastrar astronautas, voos, adicionar e remover astronautas de voos, lançar voos, explodir voos, finalizar voos com sucesso ou não, listar voos planejados, em curso e finalizados, além de manter registro dos astronautas mortos.
 
 ## Funcionalidades Implementadas
 <ul style="font-family: Arial, sans-serif">
@@ -22,7 +22,7 @@ Este projeto é um sistema simples de gestão de astronautas em C++ para a disci
 </ol>
 
 ## Como executar numa Máquina Unix
-**No seu editor favorito, clone o projeto**:
+**Clone o projeto**:
 ```bash
   git clone https://github.com/Dags0n/astronautas-cpp
 ```
